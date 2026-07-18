@@ -3,8 +3,11 @@ export const withBase = (path?: string) => {
   // Leave absolute URLs (http(s), protocol-relative) and data URIs untouched
   if (/^(https?:)?\/\//.test(path) || path.startsWith('data:')) return path
   const clean = path.startsWith('/') ? path.slice(1) : path
-  const baseEnv = (import.meta as any)?.env?.BASE_URL as string | undefined
-  const base = baseEnv && baseEnv !== '' ? baseEnv : '/'
+  // NOTE: must be the exact `import.meta.env.BASE_URL` form so Vite statically
+  // inlines the base at build time. A cast or optional-chaining defeats the
+  // replacement, leaving it undefined at runtime → base wrongly falls back to
+  // '/' (breaks GitHub Pages project sites served from /<repo>/).
+  const base = import.meta.env.BASE_URL || '/'
   const normalized = base.endsWith('/') ? base : base + '/'
   return normalized + clean
 }
