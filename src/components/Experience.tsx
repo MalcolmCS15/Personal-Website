@@ -11,6 +11,7 @@ import type { RoleType } from '../types'
 import { highlightData } from '../utils/highlightData'
 import { useLocalizedData } from '@/hooks/useLocalizedData'
 import { terminalPalette } from '@/config/theme'
+import { withBase } from '@/utils/asset'
 
 /* ── Keyframes ─────────────────────────────────────────────────── */
 const blink = keyframes`0%,100%{opacity:1}50%{opacity:0}`
@@ -241,7 +242,7 @@ const Experience: React.FC = () => {
                 return (
                   <HStack key={edu.course} fontSize="xs" spacing={2}>
                     {logo ? (
-                      <Image src={logo} alt="" w="16px" h="16px" borderRadius="sm" objectFit="contain" flexShrink={0} />
+                      <Image src={withBase(logo)} alt="" w="16px" h="16px" borderRadius="sm" objectFit="contain" flexShrink={0} />
                     ) : (
                       <Box w="16px" h="16px" borderRadius="sm" bg={`${termCommand}20`} flexShrink={0} />
                     )}

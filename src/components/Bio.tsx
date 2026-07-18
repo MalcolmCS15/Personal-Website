@@ -4,6 +4,7 @@ import { FaChevronDown } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '@/hooks/useLocalizedData'
+import { withBase } from '@/utils/asset'
 
 /** Parse **bold** markers in text */
 const renderBoldText = (text: string, color: string, boldColor: string) => {
@@ -132,7 +133,7 @@ const Bio: React.FC = () => {
                     align="flex-start"
                   >
                     {logo ? (
-                      <Image src={logo} alt={edu.institution} boxSize={["40px", "52px"]} objectFit="contain" flexShrink={0} />
+                      <Image src={withBase(logo)} alt={edu.institution} boxSize={["40px", "52px"]} objectFit="contain" flexShrink={0} />
                     ) : (
                       <Flex boxSize={["40px", "52px"]} borderRadius="md" bg={borderColor} align="center" justify="center" flexShrink={0}>
                         <Text fontWeight="bold" color={mutedColor}>{edu.institution.charAt(0)}</Text>
@@ -199,7 +200,7 @@ const Bio: React.FC = () => {
                     align="center"
                   >
                     {item.logo ? (
-                      <Image src={item.logo} alt={item.sport} boxSize={["36px", "44px"]} borderRadius="md" objectFit="contain" flexShrink={0} />
+                      <Image src={withBase(item.logo)} alt={item.sport} boxSize={["36px", "44px"]} borderRadius="md" objectFit="contain" flexShrink={0} />
                     ) : (
                       <Flex boxSize={["36px", "44px"]} borderRadius="md" bg={emojiBg} align="center" justify="center" flexShrink={0}>
                         <Text fontSize={["lg", "xl"]}>{item.emoji ?? '🏅'}</Text>

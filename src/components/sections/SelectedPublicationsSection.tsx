@@ -4,6 +4,7 @@ import { Box, Container, VStack, HStack, Text, Heading, Flex, Link,
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { selectedPublicationIds } from '@/site.config'
+import { withBase } from '@/utils/asset'
 import { useLocalizedData } from '@/hooks/useLocalizedData'
 import DynamicIcon from '../DynamicIcon'
 
@@ -37,7 +38,7 @@ const PublicationCard = ({ pub }: { pub: any }) => {
             onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onImageOpen() } }}
             cursor="zoom-in" overflow="hidden" borderRadius="sm"
           >
-            <Image src={pub.featuredImage} alt={pub.title} w="full" h="full" objectFit="contain" bg={useColorModeValue('gray.50', 'gray.900')} p={1} transition="transform 0.3s" _hover={{ transform: 'scale(1.03)' }} />
+            <Image src={withBase(pub.featuredImage)} alt={pub.title} w="full" h="full" objectFit="contain" bg={useColorModeValue('gray.50', 'gray.900')} p={1} transition="transform 0.3s" _hover={{ transform: 'scale(1.03)' }} />
           </Box>
         )}
         <VStack align="start" spacing={2.5} flex={1} justify="center">
@@ -114,7 +115,7 @@ const PublicationCard = ({ pub }: { pub: any }) => {
         <ModalContent bg="transparent" boxShadow="none">
           <ModalCloseButton color={useColorModeValue('gray.700', 'gray.200')} />
           <ModalBody p={0} display="flex" alignItems="center" justifyContent="center">
-            <Image src={pub.featuredImage} alt={`${pub.title} large preview`} maxH="80vh" maxW="90vw" objectFit="contain" borderRadius="lg" bg={useColorModeValue('white', 'gray.900')} p={4} />
+            <Image src={withBase(pub.featuredImage)} alt={`${pub.title} large preview`} maxH="80vh" maxW="90vw" objectFit="contain" borderRadius="lg" bg={useColorModeValue('white', 'gray.900')} p={4} />
           </ModalBody>
         </ModalContent>
       </Modal>

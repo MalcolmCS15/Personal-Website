@@ -35,6 +35,7 @@ import { useLocalizedData } from '@/hooks/useLocalizedData'
 import { FaChartBar, FaVideo, FaProjectDiagram, FaFileAlt, FaAtom, FaStar, FaRobot, FaGlobe, FaHandRock, FaCloudSun, FaFutbol } from 'react-icons/fa'
 import { IconType } from 'react-icons'
 import { highlightData } from '../utils/highlightData'
+import { withBase } from '@/utils/asset'
 import { publicationVenueColors, terminalPalette } from '@/config/theme'
 
 /* ── Emoji → Icon mapping ─────────────────────────────────────── */
@@ -469,7 +470,7 @@ const PublicationsTerminal: React.FC = () => {
                       }}
                     >
                       <Image
-                        src={pub.featuredImage}
+                        src={withBase(pub.featuredImage)}
                         alt={`${pub.title} thumbnail`}
                         w="full"
                         h="full"
@@ -717,7 +718,7 @@ const PublicationsTerminal: React.FC = () => {
                           }}
                         >
                           <Image
-                            src={pub.featuredImage}
+                            src={withBase(pub.featuredImage)}
                             alt={`${pub.title} featured image`}
                             w="full"
                             h="full"
@@ -794,7 +795,7 @@ const PublicationsTerminal: React.FC = () => {
             <ModalBody p={0} display="flex" alignItems="center" justifyContent="center">
               {imagePreview && (
                 <Image
-                  src={imagePreview.src}
+                  src={withBase(imagePreview.src)}
                   alt={imagePreview.alt}
                   maxH="80vh"
                   maxW="90vw"
