@@ -1,27 +1,9 @@
-# Security Policy
+# Security
 
-## Reporting a Vulnerability
+This is my personal portfolio website. If you notice anything wrong — a bug, a broken link, exposed information, or a genuine security issue — please let me know.
 
-If you discover a security vulnerability in this project, please report it responsibly.
+**How to reach me:**
+- Open an issue on this repo, or
+- Email me at **malcolmgrant05@gmail.com**
 
-**Email:** limyoonaxi@gmail.com
-
-Please include:
-- Description of the vulnerability
-- Steps to reproduce
-- Potential impact
-
-I will acknowledge receipt within 48 hours and aim to release a fix promptly.
-
-## Scope
-
-This is a static site template. Security concerns are primarily:
-- XSS through user-provided data in `src/data/` files
-- Dependency vulnerabilities in `node_modules/`
-- Exposed secrets in `.env` or source files
-
-## Best Practices for Users
-
-- Do not commit secrets or API keys to `.env` (use `.env.local` for sensitive values)
-- Keep dependencies updated: `npm audit` regularly
-- Review third-party links in your data files before deploying
+Thanks for helping keep things in good shape!
