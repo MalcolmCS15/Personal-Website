@@ -46,6 +46,9 @@ jobs:
         run: npm run build
         env:
           BASE_URL: ${{ steps.base.outputs.path }}
+          # GA4 measurement ID — not secret (exposed in page source to every visitor).
+          # Override by setting a VITE_GA_ID repository variable if you'd rather not hardcode it.
+          VITE_GA_ID: ${{ vars.VITE_GA_ID || 'G-00WM50X1ZN' }}
 
       - name: Ensure SPA fallback and .nojekyll
         run: |
